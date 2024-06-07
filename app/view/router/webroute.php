@@ -9,8 +9,10 @@ $_SESSION['nama_website'] = $hasil['nama_website'];
 require_once("../../controller/controller.php");
 require_once("../../model/model_pengguna.php");
 require_once("../../model/model_barang.php");
+require_once("../../model/model_pegawai.php");
 $users = new controller\Authentication($config);
 $barang = new controller\DataBarang($config);
+$pegawai = new controller\GajiPegwai($config);
 
 // Controller 2
 require_once("../../controller/controller2.php");
@@ -51,6 +53,14 @@ if(!isset($_GET['page'])){
             require_once("../gudang/gudang.php");
             break;
             
+        case 'gajipegawai':
+            require_once("../pegawai/gajipegawai.php");
+            break;
+
+        case 'pegawai':
+            require_once("../pegawai/pegawai.php");
+            break;
+            
         case 'supplier':
             require_once("../supplier/supplier.php");
             break;
@@ -61,6 +71,45 @@ if(!isset($_GET['page'])){
             
         case 'kategori':
             require_once("../kategori/kategori.php");
+            break;
+
+        case 'pengguna':
+            require_once("../pengguna/pengguna.php");
+            break;
+
+        case 'editpengguna':
+            require_once("../pengguna/ubahpengguna2.php");
+            break;
+
+        case 'laporan-barang':
+            require_once("../laporan/laporan-barang.php");
+            break;
+        case 'export-barang':
+            require_once("../laporan/export-barang.php");
+            break;
+
+        case 'laporan-penjualan':
+            require_once("../laporan/laporan-penjualan.php");
+            break;
+
+        case 'laporan-barangmasuk':
+            require_once("../laporan/laporan-barangmasuk.php");
+            break;
+
+        case 'laporan-barangkeluar':
+            require_once("../laporan/laporan-barangkeluar.php");
+            break;
+
+        case 'laporan-gudang':
+            require_once("../laporan/laporan-gudang.php");
+            break;
+
+        case 'laporan-gajipegawai':
+            require_once("../laporan/laporan-pegawai.php");
+            break;
+
+        case 'laporan-supplier':
+            require_once("../laporan/laporan-supplier.php");
             break;
         
         case 'keluar':
@@ -95,6 +144,9 @@ if(!isset($_GET['aksi'])){
             // Aksi Barang
             case 'tambah-barang':
                 $barang->buat();
+                break;
+            case 'ubah-barang':
+                $barang->ubah();
                 break;
         // Barang
 
@@ -187,6 +239,34 @@ if(!isset($_GET['aksi'])){
                 $supplier->hapus();
                 break;
         // Satuan Barang
+
+        // Gaji Pegawai
+        case 'create-gajian':
+            $pegawai->buat();
+            break;
+        case 'ubah-proses':
+            $pegawai->ubahproses();
+            break;
+        // Gaji Pegawai
+
+        // Pegawai 
+        case 'tambahpengguna':
+            require_once("../pengguna/tambahpengguna.php");
+            break;
+        case 'ubahpengguna':
+            require_once("../pengguna/ubahpengguna.php");
+            break;
+            // Aksi Tambah Pengguna
+            case 'tambah-pengguna':
+                $users->buat();
+                break;
+            case 'ubah-pengguna':
+                $users->ubah();
+                break;
+            case 'hapus-pengguna':
+                $users->hapus();
+                break;
+        // Pegawai 
 
         default:
             require_once("../../controller/controller.php");

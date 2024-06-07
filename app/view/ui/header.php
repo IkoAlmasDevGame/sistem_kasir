@@ -30,7 +30,7 @@
         .modal-title,
         .card-title2 {
             box-sizing: border-box;
-            font-size: 16px;
+            font-size: 15px;
             font-family: 'Times New Roman', monospace;
             font-weight: normal;
             font-style: normal;

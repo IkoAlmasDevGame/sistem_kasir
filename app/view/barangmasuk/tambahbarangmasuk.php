@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php 
-            if($_SESSION["role"] == "superadmin" || $_SESSION["role"] == "admin" || $_SESSION["role"] == "petugas")
+            if($_SESSION["role"] == "superadmin" || $_SESSION["role"] == "admin")
             {
                 require_once("../ui/header.php");
                 $koneksi = mysqli_connect("localhost", "root", "", "cp_sistem_kasir");

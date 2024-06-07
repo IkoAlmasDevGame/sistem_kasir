@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php 
-            if($_SESSION["role"] == "superadmin" || $_SESSION["role"] == "admin" || $_SESSION["role"] == "petugas")
+            if($_SESSION["role"] == "superadmin" || $_SESSION["role"] == "admin")
             {
                 require_once("../ui/header.php");
             }else
@@ -62,7 +62,12 @@
                                         <td><?php echo "Rp. ".number_format($isi['harga_beli']) ?></td>
                                         <td><?php echo "Rp. ".number_format($isi['harga_jual']) ?></td>
                                         <td><?php echo $isi['satuan'] ?></td>
-                                        <td></td>
+                                        <td>
+                                            <a href="?page=barang&aksi=ubahbarang&kode_barang=<?=$isi['kode_barang']?>"
+                                                aria-current="page" role="button" class="btn btn-warning hover btn-sm">
+                                                <i class="fa fa-edit fa-1x"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                     <?php
                                     $no++;

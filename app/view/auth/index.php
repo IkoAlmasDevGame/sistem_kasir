@@ -81,7 +81,7 @@
                                     }else{
                                         switch ($_GET['aksi']) {
                                             case 'SignIn':
-                                                $users->SignIn();
+                                                $users->Login();
                                                 break;
                                             
                                             default:
@@ -105,7 +105,7 @@
                                                 <tr>
                                                     <td>
                                                         <label for="">password</label>
-                                                        <input type="password" name="passInput" id=""
+                                                        <input type="password" name="password" id=""
                                                             class="form-control form-control-plaintext opacity-50 rounded-1"
                                                             placeholder="masukkan password anda" required>
                                                     </td>

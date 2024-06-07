@@ -1,13 +1,13 @@
 <?php 
 if(isset($_SESSION["status"])){
-    if(isset($_COOKIE["cookies"])){
-        if(isset($_SERVER["HTTP"]) && ("on" == $_SERVER["HTTPS"])){
-            if(isset($_SESSION["id"])){
-                if(isset($_SESSION["email"])){
-                    if(isset($_SESSION["username"])){
-                        if(isset($_SESSION["nama"])){
-                            if(isset($_SESSION["role"])){
-                            
+    if(isset($_SESSION["id"])){
+        if(isset($_SESSION["nomor_telepon"])){
+            if(isset($_SESSION["username"])){
+                if(isset($_SESSION["nama"])){
+                    if(isset($_SESSION["role"])){
+                        if(isset($_COOKIE['cookies'])){
+                            if(isset($_SERVER['HTTPS']) == isset($_SERVER['HTTP'])){
+                                
                             }
                         }
                     }

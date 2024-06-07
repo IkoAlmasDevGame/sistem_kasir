@@ -13,6 +13,12 @@ class Barang {
         return $row;
     }
 
+    public function updateTable($query,$kode_barang){
+        $row = $this->db->prepare($query);
+        $row->execute(array($kode_barang));
+        return $row;
+    }
+
     public function create($tanggal,$kode_barang,$nama_barang,$kategori,$jumlah,$hargabeli,$hargajual,$satuan,$pengirim){
         $tanggal = htmlentities($_POST['tanggal_masuk']) ? htmlspecialchars($_POST['tanggal_masuk']) : $_POST['tanggal_masuk'];
         $barang = htmlentities($_POST['barang']) ? htmlspecialchars($_POST['barang']) : $_POST['barang'];
@@ -44,6 +50,33 @@ class Barang {
         }else{
             echo "<script>
             alert('Data Gagal tersimpan');
+            document.location.href = '../ui/header.php?page=barangmasuk&aksi=tambahbarang';
+            </script>";
+            die;
+            exit;
+        }
+    }
+
+    public function update($hargabeli,$hargajual,$kode_barang){
+        $kode_barang = htmlentities($_POST['kode_barang']) ? htmlspecialchars($_POST['kode_barang']) : $_POST['kode_barang'];
+        $hargabeli = htmlentities($_POST['beli']) ? htmlspecialchars($_POST['beli']) : $_POST['beli'];
+        $hargajual = htmlentities($_POST['jual']) ? htmlspecialchars($_POST['jual']) : $_POST['jual'];
+
+        $table = "barang";
+        $sql = "UPDATE $table SET harga_beli = '$hargabeli', harga_jual = '$hargajual' WHERE kode_barang = '$kode_barang'";
+        $row = $this->db->prepare($sql);
+        $row->execute();
+
+        if($row){
+            echo "<script>
+            alert('Ubah Data Berhasil');
+            document.location.href = '../ui/header.php?page=barang';
+            </script>";
+            die;
+            exit;
+        }else{
+            echo "<script>
+            alert('Ubah Gagal tersimpan');
             document.location.href = '../ui/header.php?page=barangmasuk&aksi=tambahbarang';
             </script>";
             die;

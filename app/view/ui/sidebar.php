@@ -75,6 +75,11 @@ if($_SESSION["role"] == "superadmin"){
                         <i class="bi bi-circle"></i><span>Master Barang Keluar</span>
                     </a>
                 </li>
+                <li>
+                    <a href="?page=gajipegawai" aria-current="page">
+                        <i class="bi bi-circle"></i><span>Master Gaji Pegawai</span>
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -110,6 +115,64 @@ if($_SESSION["role"] == "superadmin"){
                 </li>
             </ul>
         </li><!-- End Components Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#laporan-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Data Laporan</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="laporan-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="?page=laporan-penjualan" aria-current="page">
+                        <i class="bi bi-circle"></i><span>Laporan Penjualan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="?page=laporan-barang" aria-current="page">
+                        <i class="bi bi-circle"></i><span>Laporan Data Barang</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="?page=laporan-gudang" aria-current="page">
+                        <i class="bi bi-circle"></i><span>Laporan Data Gudang</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="?page=laporan-supplier" aria-current="page">
+                        <i class="bi bi-circle"></i><span>Laporan Data Supplier</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="?page=laporan-gajipegawai" aria-current="page">
+                        <i class="bi bi-circle"></i><span>Laporan Gaji Pegawai</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="?page=laporan-barangmasuk" aria-current="page">
+                        <i class="bi bi-circle"></i><span>Laporan Barang Masuk</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="?page=laporan-barangkeluar" aria-current="page">
+                        <i class="bi bi-circle"></i><span>Laporan Barang Keluar</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#pengguna-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Data Pengguna</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="pengguna-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="?page=pengguna" aria-current="page">
+                        <i class="bi bi-circle"></i><span>Pengguna</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" aria-current="page" href="?page=keluar"
@@ -181,16 +244,139 @@ if($_SESSION["role"] == "superadmin"){
 
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
-
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link collapsed" aria-current="page" href="?page=keluar"
-                    onclick="return confirm('Apakah anda ingin logout ?')">
-                    <i class="fa fa-sign-out-alt"></i>
-                    <span>Logout</span>
+                <a class="nav-link collapsed" aria-current="page" href="?page=beranda">
+                    <i class="fa fa-home"></i>
+                    <span>Dashboard</span>
                 </a>
             </li><!-- End Blank Page Nav -->
-        </ul>
+
+            <li class="nav-item">
+                <a href="#" data-bs-target="#transaksi-nav" data-bs-toggle="collapse" class="nav-link collapsed">
+                    <i class="bi bi-menu-button-wide"></i><span>Data Transaksi</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul class="nav-content collapse" id="transaksi-nav" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="?page=barangmasuk" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Master Barang Masuk</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=barangkeluar" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Master Barang Keluar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=gajipegawai" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Master Gaji Pegawai</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Data Master</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="?page=satuanbarang" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Master Satuan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=kategori" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Master Jenis Barang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=gudang" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Master Gudang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=barang" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Master Barang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=supplier" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Master Supplier</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Components Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#laporan-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Data Laporan</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="laporan-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="?page=laporan-penjualan" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Laporan Penjualan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=laporan-barang" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Laporan Data Barang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=laporan-gudang" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Laporan Data Gudang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=laporan-supplier" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Laporan Data Supplier</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=laporan-gajipegawai" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Laporan Gaji Pegawai</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=laporan-barangmasuk" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Laporan Barang Masuk</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=laporan-barangkeluar" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Laporan Barang Keluar</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#pengguna-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Data Pengguna</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="pengguna-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="?page=editpengguna&id=<?=$_SESSION['id']?>" aria-current="page">
+                            <i class="bi bi-circle"></i><span>Edit Pengguna</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <ul class="sidebar-nav" id="sidebar-nav">
+                <li class="nav-item">
+                    <a class="nav-link collapsed" aria-current="page" href="?page=keluar"
+                        onclick="return confirm('Apakah anda ingin logout ?')">
+                        <i class="fa fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li><!-- End Blank Page Nav -->
+            </ul>
 
     </aside><!-- End Sidebar-->
     <!-- ======= Sidebar ======= -->
