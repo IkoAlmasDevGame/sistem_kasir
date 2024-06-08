@@ -31,9 +31,32 @@ new DataTable('#example2', {
         return: false,
     },
 });
+
+$(document).ready(function() {
+    var response = '';
+    $("#cari").change(function() {
+        $.ajax({
+            type: "POST",
+            url: "../kasir/barang.php?cari=yes",
+            data: 'keyword=' + $(this).val(),
+            async: false,
+            beforeSend: function(response) {
+                $("#hasil_cari").hide();
+                $("#tunggu").html(
+                    '<p style="color:green"><blink>tunggu sebentar</blink></p>');
+            },
+            success: function(html, response) {
+                $("#tunggu").html('');
+                $("#hasil_cari").show();
+                $("#hasil_cari").html(html);
+            }
+        });
+        return response;
+    });
+});
 </script>
 
-<script>
+<!-- <script>
 jQuery(document).ready(function($) {
     $(function() {
         $('#Myform2').submit(function() {
@@ -52,7 +75,7 @@ jQuery(document).ready(function($) {
         });
     });
 });
-</script>
+</script> -->
 
 <script>
 jQuery(document).ready(function($) {
@@ -92,7 +115,7 @@ jQuery(document).ready(function($) {
         var tamp = $(this).val(); // Ciptakan variabel provinsi
         $.ajax({
             type: 'POST', // Metode pengiriman data menggunakan POST
-            url: '../barangmasuk/get_barang.php', // File yang akan memproses data
+            url: '../barangkeluar/get_barang.php', // File yang akan memproses data
             data: 'tamp=' + tamp, // Data yang akan dikirim ke file pemroses
             success: function(data) { // Jika berhasil
                 $('.tampung').html(data); // Berikan hasil ke id kota
@@ -103,6 +126,22 @@ jQuery(document).ready(function($) {
 </script>
 
 <script>
+jQuery(document).ready(function($) {
+    $('#cmb_barang').change(function() { // Jika Select Box id provinsi dipilih
+        var tamp = $(this).val(); // Ciptakan variabel provinsi
+        $.ajax({
+            type: 'POST', // Metode pengiriman data menggunakan POST
+            url: '../barangmasuk/get_barang.php', // File yang akan memproses data
+            data: 'tamp=' + tamp, // Data yang akan dikirim ke file pemroses
+            success: function(data) { // Jika berhasil
+                $('.tampung').html(data); // Berikan hasil ke id kota
+            }
+        });
+    });
+});
+</script>
+
+<!-- <script>
 jQuery(document).ready(function($) {
     $(function() {
         $('#Myform1').submit(function() {
@@ -121,7 +160,7 @@ jQuery(document).ready(function($) {
         });
     });
 });
-</script>
+</script> -->
 
 <script>
 jQuery(document).ready(function($) {

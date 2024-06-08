@@ -36,6 +36,16 @@
             font-style: normal;
         }
 
+        tr,
+        th,
+        td {
+            font-size: 13px;
+            font-family: 'Times New Roman', sans-serif;
+            font-weight: normal;
+            font-style: normal;
+
+        }
+
         .card-title,
         .panel-heading {
             font-size: 21px;

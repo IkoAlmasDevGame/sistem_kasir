@@ -17,6 +17,15 @@ if (mysqli_num_rows($result) > 0) {
         </input>
     </div>
 </div>
+
+<label for="">Stok</label>
+<div class="form-group">
+    <div class="form-line">
+        <input type="text" id="stok" name="" readonly="readonly" class="form-control"
+            value="<?php echo $row['jumlah']?>">
+    </div>
+</div>
+
 <?php
     }
 }else{

@@ -10,9 +10,11 @@ require_once("../../controller/controller.php");
 require_once("../../model/model_pengguna.php");
 require_once("../../model/model_barang.php");
 require_once("../../model/model_pegawai.php");
+require_once("../../model/model_kasir.php");
 $users = new controller\Authentication($config);
 $barang = new controller\DataBarang($config);
 $pegawai = new controller\GajiPegwai($config);
+$modelkasir = new model\Penjualan($config);
 
 // Controller 2
 require_once("../../controller/controller2.php");
@@ -95,9 +97,17 @@ if(!isset($_GET['page'])){
         case 'laporan-barangmasuk':
             require_once("../laporan/laporan-barangmasuk.php");
             break;
+        
+        case 'export-barangmasuk':
+            require_once("../laporan/export-barangmasuk.php");
+            break;
 
         case 'laporan-barangkeluar':
             require_once("../laporan/laporan-barangkeluar.php");
+            break;
+
+        case 'export-barangkeluar':
+            require_once("../laporan/export-barangkeluar.php");
             break;
 
         case 'laporan-gudang':
@@ -111,6 +121,10 @@ if(!isset($_GET['page'])){
         case 'laporan-supplier':
             require_once("../laporan/laporan-supplier.php");
             break;
+
+        case 'kasir-penjualan':
+            require_once("../kasir/index.php");
+            break;    
         
         case 'keluar':
             if(isset($_SESSION['status'])){

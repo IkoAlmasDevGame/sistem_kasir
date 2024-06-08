@@ -134,12 +134,12 @@ class pengguna {
                     $_SESSION["nama"] = $tbp["nama"];
                     $_SESSION["role"] = "admin";
                     echo "<script>document.location.href = '../ui/header.php?page=beranda'</script>";
-                }else if($tbp["role"] == "petugas"){
+                }else if($tbp["role"] == "pegawai"){
                     $_SESSION["id"] = $tbp["id"];
                     $_SESSION["username"] = $tbp["username"];
                     $_SESSION["email"] = $tbp["email"];
                     $_SESSION["nama"] = $tbp["nama"];
-                    $_SESSION["role"] = "petugas";
+                    $_SESSION["role"] = "pegawai";
                     echo "<script>document.location.href = '../ui/header.php?page=beranda'</script>";
                 }
                 $_SESSION["status"] = true;

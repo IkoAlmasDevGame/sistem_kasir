@@ -9,7 +9,7 @@ class Barang {
     }
 
     public function Table(){
-        $row = $this->db->prepare("SELECT * FROM barang order by id asc");
+        $row = $this->db->prepare("SELECT * FROM barang order by id_barang asc");
         return $row;
     }
 

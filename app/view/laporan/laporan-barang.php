@@ -29,6 +29,11 @@
             <div class="card shadow mb-4">
                 <div class="card-header py-2">
                     <h4 class="card-title">Laporan Barang</h4>
+                    <div class="text-end">
+                        <a href="?page=laporan-barangmasuk" class="btn btn-sm btn-info">
+                            <i class="fa fa-refresh"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="table-responsive">
                     <div class="card-body">
@@ -55,7 +60,7 @@
                             <div class="mb-1"></div>
                             <form action="header.php?page=export-barang" method="post">
                                 <div class="d-flex justify-content-end align-items-center flex-wrap gap-2">
-                                    <label for="">print : </label>
+                                    <label for="">Tanggal : </label>
                                     <div class="col-sm-12 col-md-2">
                                         <div class="form-inline">
                                             <input type="date" name="dari" id="datepicker" class="form-control">

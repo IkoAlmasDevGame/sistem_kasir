@@ -86,7 +86,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr hidden>
                                         <td>
                                             <div class="form-inline">
                                                 <label for="">Jabatan</label>

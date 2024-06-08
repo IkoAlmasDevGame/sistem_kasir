@@ -105,16 +105,7 @@
                                             <label for="">Jumlah</label>
                                             <div class="form-line">
                                                 <input type="text" name="jumlahkeluar" id="jumlahkeluar"
-                                                    class="form-control" required />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="">Stok</label>
-                                            <div class="form-line">
-                                                <input type="text" id="stok" onkeyup="sum()" class="form-control"
-                                                    required />
+                                                    class="form-control" onkeyup="sum()" required />
                                             </div>
                                         </td>
                                     </tr>

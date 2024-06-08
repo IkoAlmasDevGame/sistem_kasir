@@ -442,6 +442,55 @@ if($_SESSION["role"] == "superadmin"){
 
             <ul class="sidebar-nav" id="sidebar-nav">
                 <li class="nav-item">
+                    <a class="nav-link collapsed" aria-current="page" href="?page=beranda">
+                        <i class="fa fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li><!-- End Blank Page Nav -->
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#pegawai-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-menu-button-wide"></i><span>Data Master Tranksaksi</span><i
+                            class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="pegawai-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="?page=kasir-penjualan" aria-current="page">
+                                <i class="bi bi-circle"></i><span>Master Kasir</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!-- End Components Nav -->
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-menu-button-wide"></i><span>Data Master</span><i
+                            class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="" aria-current="page">
+                                <i class="bi bi-circle"></i><span>Master Pelanggan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!-- End Components Nav -->
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#pengguna-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-menu-button-wide"></i><span>Data Pengguna</span><i
+                            class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="pengguna-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="?page=editpengguna&id=<?=$_SESSION['id']?>" aria-current="page">
+                                <i class="bi bi-circle"></i><span>Edit Pengguna</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link collapsed" aria-current="page" href="?page=keluar"
                         onclick="return confirm('Apakah anda ingin logout ?')">
                         <i class="fa fa-sign-out-alt"></i>
