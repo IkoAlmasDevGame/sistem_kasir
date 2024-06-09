@@ -3,6 +3,7 @@ namespace controller;
 use model\pengguna; // model users
 use model\Barang; // model Barang Masuk
 use model\Pegawai; // model Gaji Pegawai
+use model\Pelanggan;
 
 
 class Authentication {
@@ -166,6 +167,58 @@ class GajiPegwai {
         $nama = htmlentities($_POST['nama_pegawai']) ? htmlspecialchars($_POST['nama_pegawai']) : $_POST['nama_pegawai'];
 
         $result = $this->konfig->update($proses, $nama);
+        if($result === true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}
+
+class Customer {
+    protected $konfig;
+    public function __construct($konfig)
+    {
+        $this->konfig = new Pelanggan($konfig);
+    }
+
+    public function readupdate($query,$id){
+        $row = $this->konfig->updateTable($query,$id);
+        $hasil = $row->fetchAll();
+        return $hasil;
+    }
+
+    public function buat(){
+        $nama = htmlentities($_POST['nama_pelanggan']) ? htmlspecialchars($_POST['nama_pelanggan']) : $_POST['nama_pelanggan'];
+        $telepon = htmlentities($_POST['nomor_telepon']) ? htmlspecialchars($_POST['nomor_telepon']) : $_POST['nomor_telepon'];
+        $alamat = htmlentities($_POST['alamat']) ? htmlspecialchars($_POST['alamat']) : $_POST['alamat'];
+
+        $result = $this->konfig->create($nama,$telepon,$alamat);
+        if($result === true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function ubah(){
+        $nama = htmlentities($_POST['nama_pelanggan']) ? htmlspecialchars($_POST['nama_pelanggan']) : $_POST['nama_pelanggan'];
+        $telepon = htmlentities($_POST['nomor_telepon']) ? htmlspecialchars($_POST['nomor_telepon']) : $_POST['nomor_telepon'];
+        $alamat = htmlentities($_POST['alamat']) ? htmlspecialchars($_POST['alamat']) : $_POST['alamat'];
+        $id = htmlentities($_POST['id']) ? htmlspecialchars($_POST['id']) : $_POST['id'];
+
+        $result = $this->konfig->update($nama,$telepon,$alamat,$id);
+        if($result === true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function hapus(){
+        $id = htmlentities($_GET['id']) ? htmlspecialchars($_GET['id']) : $_GET['id'];
+        
+        $result = $this->konfig->delete($id);
         if($result === true){
             return true;
         }else{

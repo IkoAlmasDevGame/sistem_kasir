@@ -11,10 +11,12 @@ require_once("../../model/model_pengguna.php");
 require_once("../../model/model_barang.php");
 require_once("../../model/model_pegawai.php");
 require_once("../../model/model_kasir.php");
+require_once("../../model/model_pelanggan.php");
 $users = new controller\Authentication($config);
 $barang = new controller\DataBarang($config);
 $pegawai = new controller\GajiPegwai($config);
 $modelkasir = new model\Penjualan($config);
+$pelanggan = new controller\Customer($config);
 
 // Controller 2
 require_once("../../controller/controller2.php");
@@ -93,11 +95,13 @@ if(!isset($_GET['page'])){
         case 'laporan-penjualan':
             require_once("../laporan/laporan-penjualan.php");
             break;
+        case 'export-laporan-penjualan':
+            require_once("../laporan/export-penjualan.php");
+            break;
 
         case 'laporan-barangmasuk':
             require_once("../laporan/laporan-barangmasuk.php");
             break;
-        
         case 'export-barangmasuk':
             require_once("../laporan/export-barangmasuk.php");
             break;
@@ -105,7 +109,6 @@ if(!isset($_GET['page'])){
         case 'laporan-barangkeluar':
             require_once("../laporan/laporan-barangkeluar.php");
             break;
-
         case 'export-barangkeluar':
             require_once("../laporan/export-barangkeluar.php");
             break;
@@ -113,18 +116,38 @@ if(!isset($_GET['page'])){
         case 'laporan-gudang':
             require_once("../laporan/laporan-gudang.php");
             break;
+        case 'export-gudang':
+            require_once("../laporan/export-gudang.php");
+            break;
 
         case 'laporan-gajipegawai':
             require_once("../laporan/laporan-pegawai.php");
+            break;
+        case 'export-gaji':
+            require_once("../laporan/export-gaji.php");
             break;
 
         case 'laporan-supplier':
             require_once("../laporan/laporan-supplier.php");
             break;
+        case 'export-supplier':
+            require_once("../laporan/export-supplier.php");
+            break;
 
         case 'kasir-penjualan':
             require_once("../kasir/index.php");
-            break;    
+            break;
+        case 'print-kasir':
+            require_once("../kasir/print.php");
+            break;
+            
+        case 'pelanggan':
+            require_once("../pelanggan/pelanggan.php");
+            break;
+            
+        case 'sistem':
+            require_once("../settings/sistem.php");
+            break;
         
         case 'keluar':
             if(isset($_SESSION['status'])){
@@ -148,6 +171,15 @@ if(!isset($_GET['aksi'])){
     require_once("../../controller/controller2.php");
 }else{
     switch ($_GET['aksi']) {
+        // Sistem
+        case 'ubahsistem':
+            require_once("../settings/ubahsistem.php");
+            break;
+            // Aksi ubah sistem
+            case 'ubah-sistem':
+                
+                break;
+
         // Barang 
         case 'tambahbarang':
             require_once("../barang/tambahbarang.php");
@@ -281,6 +313,40 @@ if(!isset($_GET['aksi'])){
                 $users->hapus();
                 break;
         // Pegawai 
+
+        // Pelanggan
+        case 'tambahpelanggan':
+            require_once("../pelanggan/tambahpelanggan.php");
+            break;
+        case 'ubahpelanggan':
+            require_once("../pelanggan/ubahpelanggan.php");
+            break;
+            // Aksi Pelanggan
+            case 'tambah-pelanggan':
+                $pelanggan->buat();
+                break;
+            case 'ubah-pelanggan':
+                $pelanggan->ubah();
+                break;
+            case 'hapus-pelanggan':
+                $pelanggan->hapus();
+                break;
+        // Pelanggan
+
+        // Kasir Penjualan
+        case 'edit-kasir':
+            $modelkasir->EditKeranjang();
+            break;
+        case 'hapus-item-keranjang':
+            $modelkasir->HapusItemKeranjang();
+            break;
+        case 'reset-keranjang':
+            $modelkasir->HapusResetKeranjang();
+            break;
+        case 'reset-belanja':
+            $modelkasir->HapusBelanjaan();
+            break;
+        // Kasir Penjualan
 
         default:
             require_once("../../controller/controller.php");

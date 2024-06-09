@@ -171,6 +171,11 @@ if($_SESSION["role"] == "superadmin"){
                         <i class="bi bi-circle"></i><span>Pengguna</span>
                     </a>
                 </li>
+                <li>
+                    <a href="?page=sistem" aria-current="page">
+                        <i class="bi bi-circle"></i><span>Sistem</span>
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -469,7 +474,7 @@ if($_SESSION["role"] == "superadmin"){
                     </a>
                     <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                         <li>
-                            <a href="" aria-current="page">
+                            <a href="?page=pelanggan" aria-current="page">
                                 <i class="bi bi-circle"></i><span>Master Pelanggan</span>
                             </a>
                         </li>

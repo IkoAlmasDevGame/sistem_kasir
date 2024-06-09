@@ -73,7 +73,7 @@
                                         </div>
                                     </div>
                                     <button type="submit" name="submit" class="btn btn-primary btn-sm text-light hover">
-                                        <i class="fa fa-print"></i>
+                                        <i class="fa fa-file-export fa-1x"></i>
                                     </button>
                                 </div>
                             </form>

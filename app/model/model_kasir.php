@@ -22,7 +22,7 @@ class Penjualan {
         left join barang on barang.kode_barang = v_nota.kode_barang where v_nota.periode = ? ORDER BY id ASC";
         $row = $this->db->prepare($sql);
         $row->execute($date);
-        $hasil = $row->fetch();
+        $hasil = $row->fetchAll();
         return $hasil;
     }
 
@@ -31,7 +31,7 @@ class Penjualan {
         left join barang on barang.kode_barang = v_nota.kode_barang where v_nota.periode = ? ORDER BY id ASC";
         $row = $this->db->prepare($sql);
         $row->execute(array($periode));
-        $hasil = $row->fetch();
+        $hasil = $row->fetchAll();
         return $hasil;
     }
 
@@ -51,7 +51,7 @@ class Penjualan {
         left join barang on barang.kode_barang=v_nota.kode_barang WHERE v_nota.tanggal_input LIKE ? ORDER BY id ASC";
         $row = $this->db->prepare($sql);
         $row->execute(array($param));
-        $hasil = $row->fetch();
+        $hasil = $row->fetchAll();
         return $hasil;
     }
 

@@ -62,7 +62,8 @@
                     <h5><i class="fa fa-shopping-cart"></i> KASIR PENJUALAN
                         <div class="col-md-offset-0 pt-3 pt-lg-3">
                             <a class="btn btn-danger"
-                                onclick="javascript:return confirm('Apakah anda ingin reset keranjang ?');" href="">
+                                onclick="javascript:return confirm('Apakah anda ingin reset keranjang ?');"
+                                href="?aksi=reset-keranjang">
                                 <b>RESET KERANJANG</b></a>
                         </div>
                     </h5>
@@ -93,7 +94,7 @@
                             <tbody>
                                 <?php 
                                     $no = 1;
-                                    $hasil = $modelkasir->Table();
+                                    $hasil = $modelkasir->table();
                                     $total_bayar = 0;
                                     foreach ($hasil as $isi) {
                                 ?>
@@ -102,7 +103,7 @@
                                     <td><?php echo $isi['kode_barang']; ?></td>
                                     <td><?php echo $isi["nama_barang"]; ?></td>
                                     <td><?php echo "Rp. ".number_format($isi["harga_jual"]); ?></td>
-                                    <form action="" method="post">
+                                    <form action="?aksi=edit-kasir" method="post">
                                         <td>
                                             <input type="number" name="jumlah" class="form-control"
                                                 value="<?=$isi["jumlah"]?>" required>
@@ -228,7 +229,7 @@
                                                     if(isset($_GET['nota'])){
                                                         if($_GET["nota"]=="yes"){
                                                 ?>
-                                                <a href="" class="btn btn-danger btn-sm"
+                                                <a href="?aksi=reset-belanja" class="btn btn-danger btn-sm"
                                                     onclick="javascript:return confirm('Apakah anda ingin reset belanjaan ?');">
                                                     Reset Nota</a>
                                                 <?php
@@ -247,7 +248,8 @@
                                     </td>
                                     <td colspan="5"></td>
                                     <td>
-                                        <a href="" target="_blank">
+                                        <a href="header.php?page=print-kasir&bayar=<?php echo $bayar;?>&discount=<?php echo $discount;?>&kembali=<?php echo $hitungDiscount;?>"
+                                            target="_blank">
                                             <button class="btn btn-secondary btn-sm">
                                                 <i class="fa fa-print"></i> Print Untuk Bukti Pembayaran
                                             </button>
