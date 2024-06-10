@@ -145,7 +145,7 @@ class pengguna {
                 $_SESSION["status"] = true;
                 $_COOKIE['cookies'] = $userInput;
                 $_SERVER['HTTPS'] == $_SERVER['HTTP'] = true;
-                setcookie($userInput, $tbp['role'], time() + (86400 * 30), "/");
+                setcookie($$respon[$table], $tbp, time() + (86400 * 30), "/");
                 array($respon[$table], $tbp);
                 exit;
             }

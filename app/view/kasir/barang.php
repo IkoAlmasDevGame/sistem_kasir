@@ -36,7 +36,8 @@ if (!empty($_GET['cari'])) {
                 <td><?php echo "Rp. ".number_format($isi['harga_jual']).",-" ?></td>
                 <td><?php echo $isi["kategori"] ?></td>
                 <td>
-                    <a href="" class="btn btn-success btn-outline-light">
+                    <a href="?aksi=tambah-list&kode_barang=<?=$isi['kode_barang']?>"
+                        class="btn btn-success btn-outline-light">
                         <i class="fa fa-shopping-cart"></i>
                     </a>
                 </td>

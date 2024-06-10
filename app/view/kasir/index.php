@@ -116,7 +116,8 @@
                                         <td>
                                             <button type="submit" class="btn btn-warning">Update</button>
                                     </form>
-                                    <a href="" class="btn btn-danger"><i class="fa fa-times"></i></a>
+                                    <a href="?aksi=hapus-item-keranjang&brg=<?=$isi['kode_barang']?>&id=<?=$isi['id']?>"
+                                        class="btn btn-danger"><i class="fa fa-times"></i></a>
                                     </td>
                                 </tr>
                                 <?php

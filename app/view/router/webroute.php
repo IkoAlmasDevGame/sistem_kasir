@@ -175,10 +175,27 @@ if(!isset($_GET['aksi'])){
         case 'ubahsistem':
             require_once("../settings/ubahsistem.php");
             break;
-            // Aksi ubah sistem
+            
             case 'ubah-sistem':
-                
-                break;
+                $id = htmlspecialchars($_POST['id']);
+                $website = htmlspecialchars($_POST['nama_website']);
+                $pemilik = htmlspecialchars($_POST['nama']);
+                $pembuatan = htmlspecialchars($_POST['nama_pembuatan']);
+                                
+                $table = "sistem";
+                $sql = "UPDATE $table SET nama_website = '$website', nama = '$pemilik', nama_pembuatan = '$pembuatan' WHERE id = '$id'";
+                $row = $conn->query($sql);
+                                
+                if($row){
+                    echo "<script>document.location.href = '../ui/header.php?page=sistem'</script>";
+                    die;
+                    exit;
+                }else{
+                    echo "<script>document.location.href = '../ui/header.php?page=sistem'</script>";
+                    die;
+                    exit;                            
+                }
+            break;
 
         // Barang 
         case 'tambahbarang':
@@ -334,6 +351,9 @@ if(!isset($_GET['aksi'])){
         // Pelanggan
 
         // Kasir Penjualan
+        case 'tambah-list':
+            $modelkasir->keranjang();
+            break;
         case 'edit-kasir':
             $modelkasir->EditKeranjang();
             break;
